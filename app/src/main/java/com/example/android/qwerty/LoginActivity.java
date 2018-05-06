@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -80,19 +81,36 @@ public class LoginActivity extends AppCompatActivity {
         if(TextUtils.isEmpty(email)||TextUtils.isEmpty(password))
             Toast.makeText(getApplicationContext(),"empty fields",Toast.LENGTH_LONG).show();
         else{
+
             progressDialog.setMessage("logging in...");
             progressDialog.show();
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    progressDialog.dismiss();
-                    checkUserExist();
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    try{
+                        if(user.isEmailVerified())
+                            checkUserExist();
+                        else{
 
-                    Toast.makeText(LoginActivity.this,"logged in",Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this,"email not verified",Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
+                            mAuth.signOut();
+
+                        }
+
+                    }catch (NullPointerException e)
+                    {
+                        Toast.makeText(LoginActivity.this,"email not verified",Toast.LENGTH_LONG).show();
+                        mAuth.signOut();
+                        progressDialog.dismiss();
+                    }
+
+                   progressDialog.dismiss();
+
                     finish();
 
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 }
                 else{
                     progressDialog.dismiss();
@@ -109,14 +127,18 @@ public class LoginActivity extends AppCompatActivity {
         mDatabaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChild(user_id))
-                {
-                    Intent mainIntent = new Intent(LoginActivity.this,MainActivity.class);
-                    mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(mainIntent);
+                if(dataSnapshot.hasChild(user_id)) {
+
+
+                            Toast.makeText(LoginActivity.this, "logged in", Toast.LENGTH_LONG).show();
+                            Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                            startActivity(mainIntent);
+
                 }
                 else
-                    Toast.makeText(LoginActivity.this,"login failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this,"user not registerd",Toast.LENGTH_LONG).show();
             }
 
             @Override

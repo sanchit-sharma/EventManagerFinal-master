@@ -27,6 +27,7 @@ public class DescriptionActivity extends AppCompatActivity {
     TextView mSocietyName,mDescription,toolbar,mRateText;
     String title,society,description,image,registration;
     Button mregis,mRate;
+    private Button mRemoveButton;
 
 
     @Override
@@ -35,6 +36,13 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_description);
         Toolbar toolbar=findViewById(R.id.toolbar1);
         mRate=(Button)findViewById(R.id.rate_button);
+        mRemoveButton = findViewById((R.id.removeEvent));
+        mRemoveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DescriptionActivity.this,RemoveEventActivity.class));
+            }
+        });
         mRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
