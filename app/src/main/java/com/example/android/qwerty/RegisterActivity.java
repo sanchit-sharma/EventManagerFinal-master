@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button mRegisterButton;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabaseUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         mRegisterButton = findViewById(R.id.registerBtn);
         mAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("users");
         
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,15 +67,20 @@ public class RegisterActivity extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
 
+
                         String user_id = mAuth.getCurrentUser().getUid();
-                        DatabaseReference current_user_db = mDatabase.child(user_id);
+                        DatabaseReference current_user_db = mDatabaseUsers.child(user_id);
 
                         current_user_db.child("name").setValue(name);
                         progressDialog.dismiss();
                         Toast.makeText(RegisterActivity.this,"registered",Toast.LENGTH_LONG).show();
                         finish();
-
                         startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+                    }
+                    else{
+                        progressDialog.dismiss();
+                        Toast.makeText(RegisterActivity.this,"registration failed",Toast.LENGTH_LONG).show();
+
                     }
                 }
             });
