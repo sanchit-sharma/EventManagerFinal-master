@@ -28,7 +28,8 @@
         <activity android:name=".RateActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".DeveloperLoginActivity"></activity>
     </application>
 
 </manifest>

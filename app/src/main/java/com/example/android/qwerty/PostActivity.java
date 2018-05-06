@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
+import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,8 +18,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -42,6 +48,9 @@ public class PostActivity extends AppCompatActivity {
     private Uri imageUri = null;
     private DatabaseReference mDatabase;
     private ProgressDialog mProgress;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
+    private DatabaseReference mDatabaseUsers;
 
 
     public void onImageGalleryClicked(View v)
@@ -101,6 +110,10 @@ public class PostActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("event");
         storage= FirebaseStorage.getInstance();
         storageReference= storage.getReference();
+        mAuth = FirebaseAuth.getInstance();
+        mCurrentUser = mAuth.getCurrentUser();
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("users").child(mCurrentUser.getUid());
+
 
         ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},PERMISSIONS_REQUEST_READ_STORAGE);
 
@@ -127,21 +140,34 @@ public class PostActivity extends AppCompatActivity {
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
 
-                                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                                    DatabaseReference newPost = mDatabase.push();
+                                   final Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                                    final DatabaseReference newPost = mDatabase.push();
 
-                                    newPost.child("title").setValue(name);
-                                    newPost.child("society").setValue(societyName);
-                                    newPost.child("description").setValue(description);
-                                    newPost.child("image").setValue(downloadUrl.toString());
-                                    newPost.child("registrationLink").setValue(registration);
+
+                                    mDatabaseUsers.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            newPost.child("title").setValue(name);
+                                            newPost.child("society").setValue(societyName);
+                                            newPost.child("description").setValue(description);
+                                            newPost.child("image").setValue(downloadUrl.toString());
+                                            newPost.child("registrationLink").setValue(registration);
+                                            newPost.child("userId").setValue(mCurrentUser.getUid());
+                                            startActivity(new Intent(PostActivity.this, MainActivity.class));
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
 
 
                                     mProgress.dismiss();
                                     Toast.makeText(getApplicationContext(), "Uploaded",
                                             Toast.LENGTH_SHORT).show();
                                     finish();
-                                    startActivity(new Intent(PostActivity.this, MainActivity.class));
+
 
 
 

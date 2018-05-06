@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mLogOut;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         mAddEvent = findViewById(R.id.addEvent);
         mLogOut  = findViewById(R.id.logOutBtn);
         mAuth = FirebaseAuth.getInstance();
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         mAddEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,PostActivity.class));
+                startActivity(new Intent(MainActivity.this,DeveloperLoginActivity.class));
             }
         });
         mLogOut.setOnClickListener(new View.OnClickListener() {
