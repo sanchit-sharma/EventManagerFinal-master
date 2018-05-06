@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.qwerty.MainActivity">
+
+    <TextView
+        android:id="@+id/upcoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/addEvent"
+        android:layout_alignParentStart="true"
+        android:fontFamily="@font/semibold"
+        android:text="UPCOMING EVENTS" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:id= "@+id/event_list"
+        android:layout_below="@+id/upcoming"
+        />
+
+    <Button
+        android:id="@+id/addEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="37dp"
+        android:layout_toEndOf="@+id/upcoming"
+        android:text="Add event" />
+
+    <Button
+        android:id="@+id/logOutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/event_list"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="21dp"
+        android:text="log Out" />
+
+
+</RelativeLayout>
+
+

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EventManager</string>
+    <string name="name_of_the_event">Name of the Event</string>
+    <string name="conducting_society">Conducting Society</string>
+    <string name="description">Description</string>
+    <string name="submit">SUBMIT</string>
+    <string name="upload_cover">UPLOAD COVER</string>
+    <string name="todo">TODO</string>
+</resources>

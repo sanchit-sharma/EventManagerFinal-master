@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:clickable="true"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="30dp"
+    android:background="#aeaeae"
+    app:cardElevation="@dimen/cardview_compat_inset_shadow"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+
+
+
+        <ImageView
+
+            android:id="@+id/event_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:layout_margin="10dp"
+
+
+            />
+
+
+
+
+        <TextView
+            android:id="@+id/event_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/regular"
+            android:layout_toRightOf="@id/event_image"
+            android:textColor="#00000f"
+
+            />
+
+        <TextView
+            android:id="@+id/society"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:fontFamily="@font/regular"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/event_title"
+
+            android:layout_toRightOf="@+id/event_image"
+            android:layout_marginTop="1dp"
+
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="About"
+            android:id="@+id/desc_button"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/society"
+            android:background="@drawable/buttonshape"
+            android:layout_margin="20dp"
+            android:textColor="#ffffff"
+            android:shadowColor="#1a1afd"
+            />
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:minHeight="0dp"
+            android:stepSize="1.0"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:id="@+id/ratingBar"
+            android:theme="@style/RatingBar"
+            android:isIndicator="true"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingBar"
+            android:layout_alignStart="@+id/ratingBar"
+            android:id="@+id/avg"
+            android:text="Average Rating: "
+            android:textSize="10sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_toRightOf="@+id/avg"
+            android:layout_below="@+id/ratingBar"
+            android:id="@+id/avg_rating"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_alignStart="@+id/avg"
+            android:layout_below="@+id/avg"
+            android:text="Users Rated: "
+            android:id="@+id/users_rate"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_toRightOf="@+id/users_rate"
+            android:layout_below="@+id/avg_rating"
+            android:id="@+id/users_rated"
+            />
+
+
+
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#bdbdbd"
+        android:layout_margin="5dp"
+        />
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hype Event"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rate_head"
+        android:textSize="20sp"
+        android:textColor="#00000f"
+
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/rate_head"
+        android:background="#bdbdbd"
+        android:id="@+id/bound"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bound"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="Are you interested in this event?"
+        android:textSize="25sp"
+        />
+    <com.hsalf.smilerating.SmileRating
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/RatingBar"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rate"
+        android:layout_margin="10dp"
+        android:layout_centerVertical="true"
+
+
+        />
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/rate"
+        android:layout_centerHorizontal="true"
+        android:text="submit"
+        android:textSize="10sp"
+        android:background="@drawable/buttonshape"
+        android:textColor="#ffffff"
+        android:layout_marginTop="5dp"
+        android:id="@+id/submitbutton"
+        />
+
+
+
+
+
+
+
+
+</RelativeLayout>

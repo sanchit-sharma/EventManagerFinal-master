@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.qwerty.PostActivity"
+    android:background="@drawable/back"
+
+    >
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/akg"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/logo_akg"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="SUBMIT EVENT"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/regular"
+        android:layout_below="@id/logo_akg"
+        android:id="@+id/head"
+        />
+
+    <ImageView
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgPicture"
+        android:layout_below="@id/head"
+
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/todo" />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/imgPicture"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/name_of_the_event"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="#ffffff"
+        android:fontFamily="@font/regular"
+        android:textColorHint="#d1cbcb" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="10dp"
+        android:hint="@string/conducting_society"
+        android:fontFamily="@font/regular"
+        android:id="@+id/society"
+        android:textColorHint="#d1cbcb"
+        android:textColor="#ffffff"
+        android:textColorHighlight="#ffffff"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/society"
+        android:fontFamily="@font/regular"
+        android:id="@+id/regis"
+        android:hint="Registration Link"
+        android:textColorHint="#d1cbcb"
+        android:textColor="#ffffff"
+        android:layout_marginTop="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regis"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/regular"
+        android:hint="@string/description"
+        android:id="@+id/textDesc"
+        android:textColorHint="#d1cbcb"
+        android:textColor="#ffffff"
+        android:textColorHighlight="#ffffff"
+
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textDesc"
+        android:layout_centerHorizontal="true"
+        android:text="@string/submit"
+        android:id="@+id/postBtn"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:id="@+id/upload_image"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/postBtn"
+        android:layout_below="@+id/postBtn"
+        android:layout_marginTop="16dp"
+        android:onClick="onImageGalleryClicked"
+        android:text="@string/upload_cover" />
+
+</RelativeLayout>
+
+</LinearLayout>
