@@ -2,6 +2,7 @@ package com.example.android.qwerty;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,9 +10,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dynamitechetan.flowinggradient.FlowingGradientClass;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -37,6 +40,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        RelativeLayout rl = (RelativeLayout) findViewById(R.id.r1);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
 
         mEmail = findViewById(R.id.loginEmail);
         mPassword = findViewById(R.id.loginPassword);
@@ -79,10 +85,10 @@ public class LoginActivity extends AppCompatActivity {
         String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         if(TextUtils.isEmpty(email)||TextUtils.isEmpty(password))
-            Toast.makeText(getApplicationContext(),"empty fields",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Empty Fields",Toast.LENGTH_LONG).show();
         else{
 
-            progressDialog.setMessage("logging in...");
+            progressDialog.setMessage("Logging In...");
             progressDialog.show();
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -94,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             checkUserExist();
                         else{
 
-                            Toast.makeText(LoginActivity.this,"email not verified",Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this,"Email Not Verified",Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
                             mAuth.signOut();
 
@@ -102,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     }catch (NullPointerException e)
                     {
-                        Toast.makeText(LoginActivity.this,"email not verified",Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this,"Email Not Verified",Toast.LENGTH_LONG).show();
                         mAuth.signOut();
                         progressDialog.dismiss();
                     }
@@ -114,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else{
                     progressDialog.dismiss();
-                    Toast.makeText(LoginActivity.this,"login failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this,"Login Failed",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -130,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(dataSnapshot.hasChild(user_id)) {
 
 
-                            Toast.makeText(LoginActivity.this, "logged in", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Logged In", Toast.LENGTH_LONG).show();
                             Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                             mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
@@ -138,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
                 else
-                    Toast.makeText(LoginActivity.this,"user not registerd",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this,"User Not Registered",Toast.LENGTH_LONG).show();
             }
 
             @Override

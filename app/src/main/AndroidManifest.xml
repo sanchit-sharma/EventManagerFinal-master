@@ -20,9 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".PostActivity" />
-        <activity
-            android:name=".MyWelcomeActivity"
-            android:theme="@style/WelcomeScreenTheme" />
         <activity android:name=".DescriptionActivity" />
         <activity android:name=".EventPhoto" />
         <activity android:name=".RateActivity" />
@@ -30,7 +27,6 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".DeveloperLoginActivity" />
-        <activity android:name=".RemoveEventActivity"></activity>
     </application>
 
 </manifest>
