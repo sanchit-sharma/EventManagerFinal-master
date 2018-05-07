@@ -55,9 +55,9 @@ public class DeveloperLoginActivity extends AppCompatActivity {
         String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         if(TextUtils.isEmpty(email)||TextUtils.isEmpty(password))
-            Toast.makeText(getApplicationContext(),"empty fields",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Empty Fields",Toast.LENGTH_LONG).show();
         else{
-            progressDialog.setMessage("logging in...");
+            progressDialog.setMessage("Logging In...");
             progressDialog.show();
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -70,7 +70,7 @@ public class DeveloperLoginActivity extends AppCompatActivity {
                     }
                     else{
 
-                        Toast.makeText(DeveloperLoginActivity.this,"you are not official developer",Toast.LENGTH_LONG).show();
+                        Toast.makeText(DeveloperLoginActivity.this,"You are not a Verified Administrator",Toast.LENGTH_LONG).show();
                     }
                     progressDialog.dismiss();
 
@@ -93,7 +93,7 @@ public class DeveloperLoginActivity extends AppCompatActivity {
                     startActivity(postIntent);
                 }
                 else
-                    Toast.makeText(DeveloperLoginActivity.this,"you are not official developer",Toast.LENGTH_LONG).show();
+                    Toast.makeText(DeveloperLoginActivity.this,"You are not a Verified Administrator",Toast.LENGTH_LONG).show();
             }
 
 

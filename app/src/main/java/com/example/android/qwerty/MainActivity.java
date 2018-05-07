@@ -43,7 +43,7 @@ import java.io.File;
 import jp.wasabeef.blurry.Blurry;
 
 public class MainActivity extends AppCompatActivity {
-    WelcomeHelper welcomeScreen;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
@@ -72,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        welcomeScreen=new WelcomeHelper(this,MyWelcomeActivity.class);
-        welcomeScreen.forceShow();
-        welcomeScreen.show(savedInstanceState);
+
         mEventList= findViewById(R.id.event_list);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(MainActivity.this);
         mLayoutManager.setReverseLayout(true);
@@ -200,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        welcomeScreen.onSaveInstanceState(outState);
+
 
     }
 

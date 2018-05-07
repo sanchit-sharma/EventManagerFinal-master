@@ -4,47 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.qwerty.RegisterActivity">
-
+    tools:context="com.example.android.qwerty.RegisterActivity"
+    android:background="@drawable/one"
+    >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Create New Account"
+    android:layout_marginTop="120dp"
+    android:textColor="#ffffff"
+    android:textSize="30dp"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/head_regis"
+    />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/head_regis"
+        android:background="#cecece"
+        android:layout_margin="20dp"
+        />
     <EditText
         android:id="@+id/nameField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/edit_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:ems="10"
-        android:hint="name"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:backgroundTint="#ffffff"
+        android:hint="Full Name"
+        android:textAlignment="center"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/emailField"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edit_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textAlignment="center"
         android:layout_below="@+id/nameField"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="email"
+        android:hint="Email Address"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/passwordField"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edit_text"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/emailField"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="password"
+        android:hint="Password"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/registerBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/passwordField"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="66dp"
-        android:text="Register" />
+        android:layout_marginTop="30dp"
+        android:text="Register"
+        android:background="@drawable/sign_in"
+        android:textColor="#ffffff"
+        />
 </RelativeLayout>
