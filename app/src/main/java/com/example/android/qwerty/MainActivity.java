@@ -127,13 +127,24 @@ public class MainActivity extends AppCompatActivity {
         ) {
 
             @Override
-            protected void populateViewHolder(final EventViewHolder viewHolder, EventsManager model, int position) {
+            protected void populateViewHolder(final EventViewHolder viewHolder, EventsManager model, final int position) {
+                 final String post_key = getRef(position).getKey();
                 String title=model.getTitle();
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setSociety(model.getSociety());
                 viewHolder.setImage(getApplicationContext(),model.getImage());
                 viewHolder.setRegister(getApplicationContext(),model.getRegistrationLink()
-                        ,model.getTitle(),model.getDescription(),model.getSociety(),model.getImage());
+                        ,model.getTitle(),model.getDescription(),model.getSociety(),model.getImage(),post_key);
+
+               /* viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent= new Intent(MainActivity.this,DescriptionActivity.class);
+                        intent.putExtra("eventId",post_key);
+                        startActivity(intent);
+                    }
+                });*/
+
 
             }
 
@@ -175,9 +186,10 @@ public class MainActivity extends AppCompatActivity {
             Picasso.get().load(image).into(event_image);
         }
 
-        public void setRegister(final Context ctx, final String register, final String title, final String desc, final String society, final String image) {
+        public void setRegister(final Context ctx, final String register, final String title, final String desc, final String society, final String image, final String post_key) {
             Button mAboutButton=mView.findViewById(R.id.desc_button);
             mAboutButton.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View view) {
                     Intent intent= new Intent(view.getContext(),DescriptionActivity.class);
@@ -186,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("society",society);
                     intent.putExtra("image",image);
                     intent.putExtra("registration",register);
+                    intent.putExtra("eventId",post_key);
                     view.getContext().startActivity(intent);
                 }
             });

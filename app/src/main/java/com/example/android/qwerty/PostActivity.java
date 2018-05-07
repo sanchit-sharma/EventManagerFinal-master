@@ -152,7 +152,7 @@ public class PostActivity extends AppCompatActivity {
                                             newPost.child("description").setValue(description);
                                             newPost.child("image").setValue(downloadUrl.toString());
                                             newPost.child("registrationLink").setValue(registration);
-                                            newPost.child("userId").setValue(mCurrentUser.getUid());
+                                            newPost.child("userId").setValue(mCurrentUser.getUid().toString());
                                             startActivity(new Intent(PostActivity.this, MainActivity.class));
                                         }
 

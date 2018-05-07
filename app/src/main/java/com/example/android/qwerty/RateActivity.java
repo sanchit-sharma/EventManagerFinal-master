@@ -4,14 +4,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.hsalf.smilerating.SmileRating;
 
 public class RateActivity extends AppCompatActivity {
+    private DatabaseReference mDatabseRating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate);
+        mDatabseRating = FirebaseDatabase.getInstance().getReference().child("event");
         final SmileRating mrating=(SmileRating)findViewById(R.id.rate);
         mrating.setNameForSmile(SmileRating.TERRIBLE,"");
         mrating.setNameForSmile(SmileRating.BAD,"");
@@ -69,6 +73,12 @@ public class RateActivity extends AppCompatActivity {
                 }
             }
         });
+       mrating.setOnRatingSelectedListener(new SmileRating.OnRatingSelectedListener() {
+           @Override
+           public void onRatingSelected(int level, boolean reselected) {
+
+           }
+       });
 
 
     }

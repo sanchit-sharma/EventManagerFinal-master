@@ -70,7 +70,7 @@ public class DeveloperLoginActivity extends AppCompatActivity {
                     }
                     else{
 
-                        Toast.makeText(DeveloperLoginActivity.this,"you are not official developer",Toast.LENGTH_LONG).show();
+                        Toast.makeText(DeveloperLoginActivity.this,"password or username entered incorrect",Toast.LENGTH_LONG).show();
                     }
                     progressDialog.dismiss();
 

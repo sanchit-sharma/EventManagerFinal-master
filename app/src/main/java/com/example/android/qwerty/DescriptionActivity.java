@@ -25,7 +25,7 @@ public class DescriptionActivity extends AppCompatActivity {
     ImageView mFrontPoster;
     ImageButton mImageButton;
     TextView mSocietyName,mDescription,toolbar,mRateText;
-    String title,society,description,image,registration;
+    String title,society,description,image,registration,eventId;
     Button mregis,mRate;
     private Button mRemoveButton;
 
@@ -40,13 +40,16 @@ public class DescriptionActivity extends AppCompatActivity {
         mRemoveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DescriptionActivity.this,RemoveEventActivity.class));
+                Intent removeActivity = new Intent(DescriptionActivity.this,RemoveEventActivity.class);
+                removeActivity.putExtra("eventId",eventId);
+                startActivity(removeActivity);
             }
         });
         mRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent_rate=new Intent(DescriptionActivity.this,RateActivity.class);
+                intent_rate.putExtra("eventId",eventId);
                 startActivity(intent_rate);
             }
         });
@@ -68,6 +71,9 @@ public class DescriptionActivity extends AppCompatActivity {
         }
         if(intent.hasExtra("registration")){
             registration=intent.getStringExtra("registration");
+        }
+        if(intent.hasExtra("eventId")){
+            eventId = intent.getStringExtra("eventId");
         }
         mFrontPoster=(ImageView)findViewById(R.id.poster_front);
         mImageButton=(ImageButton)findViewById(R.id.image_button);

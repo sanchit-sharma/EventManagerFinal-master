@@ -10,16 +10,19 @@ public class EventsManager {
     private String description;
     private String image;
     private String registrationLink;
+    private String userId;
 
     public EventsManager() {
     }
 
-    public EventsManager(String title, String society, String description, String image,String registrationLink) {
+    public EventsManager(String title, String society, String description, String image,String registrationLink,String userId) {
         this.title = title;
         this.society = society;
         this.description = description;
         this.image = image;
         this.registrationLink=registrationLink;
+        this.userId= userId;
+
     }
     public String getRegistrationLink(){return registrationLink;}
     public void setRegistrationLink(String registrationLink){this.registrationLink=registrationLink;}
@@ -54,5 +57,11 @@ public class EventsManager {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getUserId(){return userId;}
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
