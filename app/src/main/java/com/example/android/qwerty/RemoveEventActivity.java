@@ -1,7 +1,9 @@
 package com.example.android.qwerty;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.provider.ContactsContract;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -43,14 +45,35 @@ public class RemoveEventActivity extends AppCompatActivity {
                     return;
                 String uid = dataSnapshot.child("userId").getValue().toString();
                 if(user_id.equals(uid)){
+                    new AlertDialog.Builder(RemoveEventActivity.this)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle("Remove Event")
+                            .setMessage("Are you sure you want to Remove this event?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                            {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    mDatabase.removeValue();
+                                    Toast.makeText(RemoveEventActivity.this,"Event Succesfully Removed",Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(RemoveEventActivity.this,MainActivity.class));
+                                    finish();
 
-                    mDatabase.removeValue();
-                    Toast.makeText(RemoveEventActivity.this,"activity succesfully removed",Toast.LENGTH_LONG).show();
-                    finish();
-                    startActivity(new Intent(RemoveEventActivity.this,MainActivity.class));
+                                }
+
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    startActivity(new Intent(RemoveEventActivity.this,MainActivity.class));
+                                    finish();
+                                }
+                            })
+                            .show();
+
+
                 }
                 else {
-                    Toast.makeText(RemoveEventActivity.this, "you did not create this event", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RemoveEventActivity.this, "You cannot remove events created by other administrators", Toast.LENGTH_SHORT).show();
                     finish();}
 
 
