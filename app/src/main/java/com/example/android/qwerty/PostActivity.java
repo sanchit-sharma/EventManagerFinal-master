@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.ContactsContract;
@@ -99,7 +100,8 @@ public class PostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
-
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
         mFirebaseBtn = findViewById(R.id.postBtn);
         mFirebaseName = findViewById(R.id.name);
         mFirebaseDesc = findViewById(R.id.textDesc);
@@ -178,7 +180,7 @@ public class PostActivity extends AppCompatActivity {
                             });
                 }
                 else
-                    Toast.makeText(PostActivity.this, "enter all the fields", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PostActivity.this, "Please complete all the fields", Toast.LENGTH_LONG).show();
             }
         });
 

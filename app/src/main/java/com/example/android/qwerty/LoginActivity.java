@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         if(TextUtils.isEmpty(email)||TextUtils.isEmpty(password))
-            Toast.makeText(getApplicationContext(),"Empty Fields",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Please fill all the details",Toast.LENGTH_LONG).show();
         else{
 
             progressDialog.setMessage("Logging In...");
