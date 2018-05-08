@@ -128,12 +128,12 @@ public class PostActivity extends AppCompatActivity {
                 final String societyName= mFirebaseSocietyName.getText().toString().trim();
                 final String description = mFirebaseDesc.getText().toString();
                 final String registration=mFirebaseRegistrationLink.getText().toString();
-                mProgress.setMessage("Posting...");
-                mProgress.show();
+
 
 
                 if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(societyName)&&!TextUtils.isEmpty(description)&&imageUri!=null) {
-
+                    mProgress.setMessage("Posting...");
+                    mProgress.show();
 
                     StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
                     ref.putFile(imageUri)
