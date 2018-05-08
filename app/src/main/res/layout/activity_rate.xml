@@ -54,11 +54,14 @@
         android:id="@+id/submitbutton"
         />
 
-
-
-
-
-
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submitbutton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:text="TextView" />
 
 
 </RelativeLayout>

@@ -62,49 +62,7 @@ public class RemoveEventActivity extends AppCompatActivity {
 
             }
         });
-        /*String uid = mDatabaseUsers.toString();
-        if(uid.equals(user_id))
-        {
-            mDatabase.removeValue();
-            Toast.makeText(RemoveEventActivity.this,"activity succesfully removed",Toast.LENGTH_LONG).show();
-            finish();
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-        }
-        else {
-            Toast.makeText(RemoveEventActivity.this, "you did not create this event", Toast.LENGTH_SHORT).show();
-            finish();
-        }*/
 
-
-       /*mDatabase.addValueEventListener(new ValueEventListener() {
-           @Override
-           public void onDataChange(DataSnapshot dataSnapshot) {
-               for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                   String userId = snapshot.child("userId").getValue().toString();
-                   if(user_id.equals(userId)){
-                       String key = snapshot.getKey();
-                       mDatabase.event_key.removeValue();
-                       Toast.makeText(RemoveEventActivity.this,"activity succesfully removed",Toast.LENGTH_LONG).show();
-                       finish();
-                       startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                   }
-                   finish();
-
-
-
-
-               }
-
-
-           }
-
-           @Override
-           public void onCancelled(DatabaseError databaseError) {
-
-
-
-           }
-       });*/
 
 
 
