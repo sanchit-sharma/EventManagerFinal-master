@@ -118,6 +118,13 @@
                     android:textColor="#ffffff"
                     android:layout_below="@id/regis"
                     />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/removeEvent"
+                    android:layout_below="@+id/regis"
+                    android:text="remove"
+                />
 
 
             </RelativeLayout>
