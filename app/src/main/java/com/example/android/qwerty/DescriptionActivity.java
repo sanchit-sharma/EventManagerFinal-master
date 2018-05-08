@@ -36,13 +36,6 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_description);
         Toolbar toolbar=findViewById(R.id.toolbar1);
         mRate=(Button)findViewById(R.id.rate_button);
-        mRemoveButton = findViewById((R.id.removeEvent));
-        mRemoveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                
-            }
-        });
         mRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/one"
+    >
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
+
 
     >
 
@@ -14,102 +17,123 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.qwerty.PostActivity"
-    android:background="@drawable/back"
 
     >
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/akg"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/logo_akg"
 
-        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="SUBMIT EVENT"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
+        android:text="Submit Event"
+        android:layout_marginTop="50dp"
         android:textColor="#ffffff"
-        android:fontFamily="@font/regular"
-        android:layout_below="@id/logo_akg"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
         android:id="@+id/head"
+
         />
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/head"
+        android:background="#cecece"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/line"
+        />
     <ImageView
-        android:layout_width="152dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/imgPicture"
-        android:layout_below="@id/head"
-
-        android:layout_gravity="center_horizontal"
+        android:layout_below="@id/line"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
         android:contentDescription="@string/todo" />
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="00dp"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/imgPicture"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:cursorVisible="false"
+        android:background="@drawable/edit_text"
+        android:textAlignment="center"
         android:hint="@string/name_of_the_event"
         android:textColor="@android:color/white"
         android:textColorHighlight="#ffffff"
         android:fontFamily="@font/regular"
-        android:textColorHint="#d1cbcb" />
+        android:textColorHint="#ffffff" />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/name"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:hint="@string/conducting_society"
         android:fontFamily="@font/regular"
         android:id="@+id/society"
-        android:textColorHint="#d1cbcb"
+        android:textColorHint="#ffffff"
+        android:background="@drawable/edit_text"
+        android:textAlignment="center"
         android:textColor="#ffffff"
         android:textColorHighlight="#ffffff"
         />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/society"
         android:fontFamily="@font/regular"
         android:id="@+id/regis"
         android:hint="Registration Link"
-        android:textColorHint="#d1cbcb"
+        android:textColorHint="#ffffff"
+        android:background="@drawable/edit_text"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:textColor="#ffffff"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
         />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_below="@+id/regis"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
         android:fontFamily="@font/regular"
         android:hint="@string/description"
+        android:textAlignment="center"
         android:id="@+id/textDesc"
-        android:textColorHint="#d1cbcb"
+        android:textColorHint="#ffffff"
         android:textColor="#ffffff"
         android:textColorHighlight="#ffffff"
+        android:background="@drawable/edit_text"
 
         />
 
     <Button
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/textDesc"
-        android:layout_centerHorizontal="true"
+        android:background="@drawable/sign_in"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/upload_image"
         android:text="@string/submit"
         android:id="@+id/postBtn"
+        android:layout_marginLeft="50dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         />
     <Button
         android:id="@+id/upload_image"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_alignStart="@+id/postBtn"
-        android:layout_below="@+id/postBtn"
-        android:layout_marginTop="16dp"
+        android:layout_below="@+id/textDesc"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_text"
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
         android:onClick="onImageGalleryClicked"
         android:text="@string/upload_cover" />
 
