@@ -40,7 +40,7 @@ public class DescriptionActivity extends AppCompatActivity {
         mRemoveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent removeActivity = new Intent(DescriptionActivity.this,RemoveEventActivity.class);
+                Intent removeActivity = new Intent(DescriptionActivity.this,DeveloperLoginToRemoveEventActivity.class);
                 removeActivity.putExtra("eventId",eventId);
                 startActivity(removeActivity);
             }
