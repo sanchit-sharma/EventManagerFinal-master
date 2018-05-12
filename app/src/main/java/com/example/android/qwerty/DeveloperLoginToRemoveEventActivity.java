@@ -38,8 +38,8 @@ public class DeveloperLoginToRemoveEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_developer_login_to_remove_event);
         final String event_key = getIntent().getExtras().getString("eventId");
 
-        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        //getWindow().setStatusBarColor(Color.TRANSPARENT);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
         mEmail = findViewById(R.id.developerLoginId);
         mPassword = findViewById(R.id.developerLoginPassword);
         mButton = findViewById(R.id.developerLoginBtn);
