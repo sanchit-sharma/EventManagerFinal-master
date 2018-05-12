@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +14,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -54,8 +56,29 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(item.getItemId()==R.id.action_add){
-            startActivity(new Intent(MainActivity.this,PostActivity.class));
+            startActivity(new Intent(MainActivity.this,DeveloperLoginActivity.class));
         }
+        if(item.getItemId()==R.id.log_out){
+            new AlertDialog.Builder(MainActivity.this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Log Out")
+                    .setMessage("Are you sure you want to Log Out?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mAuth.signOut();
+
+                        }
+
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+
+
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -63,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private Button mAddEvent;
-    private Button mLogOut;
 
 
 
@@ -81,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
         mEventList.setLayoutManager(mLayoutManager);
         mDatabase= FirebaseDatabase.getInstance().getReference().child("event");
         RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-        mAddEvent = findViewById(R.id.addEvent);
-        mLogOut  = findViewById(R.id.logOutBtn);
         mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -98,18 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        mAddEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,DeveloperLoginActivity.class));
-            }
-        });
-        mLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-            }
-        });
+
 
     }
     protected void onStart(){

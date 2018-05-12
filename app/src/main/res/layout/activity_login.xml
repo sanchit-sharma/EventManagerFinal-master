@@ -13,8 +13,32 @@
         gradient:transition_duration = "4000"
         gradient:transition_drawable="@drawable/trans"
         />
+<ImageView
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/akg"
+    android:layout_centerHorizontal="true"
+    android:layout_margin="20dp"
 
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Manager"
+        android:layout_marginTop="120dp"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:id="@+id/head_forgot"
 
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/head_forgot"
+        android:background="#cecece"
+        android:layout_margin="20dp"
+        />
 
     <EditText
         android:id="@+id/loginEmail"
@@ -32,7 +56,7 @@
         android:textColorHint="#ffffff"
         android:inputType="textEmailAddress"
         android:background="@drawable/edit_text"
-        android:cursorVisible="false"
+        android:textCursorDrawable="@null"
 
         />
 
@@ -51,7 +75,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
-        android:cursorVisible="false"
+        android:textCursorDrawable="@null"
         android:textAlignment="center"
         android:inputType="textPassword" />
 

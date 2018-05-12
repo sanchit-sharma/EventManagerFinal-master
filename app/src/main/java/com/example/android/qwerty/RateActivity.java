@@ -102,16 +102,6 @@ public class RateActivity extends AppCompatActivity {
             }
         });
 
-        mrating.setOnRatingSelectedListener(new SmileRating.OnRatingSelectedListener() {
-            @Override
-            public void onRatingSelected(int level, boolean reselected) {
-
-
-                    Toast.makeText(RateActivity.this,level,Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
 
 
 
